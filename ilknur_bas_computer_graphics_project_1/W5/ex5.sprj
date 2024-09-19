@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<project version="2">
+	<pipeline>
+		<pass name="teapot_v2" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\teapot_v2VS.glsl" entry="main" />
+			<shader type="ps" path="shaders\teapot_v2PS.glsl" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Normal" semantic="NORMAL" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="teapot" type="model">
+					<filepath>..\W0\samplemodels\uv_teapot.glb</filepath>
+					<grouponly>false</grouponly>
+					<instanced>true</instanced>
+					<instancecount>12</instancecount>
+				</item>
+			</items>
+			<itemvalues>
+				<value variable="viewproj" for="teapot">
+					<row>
+						<value>-0.711767614</value>
+						<value>-0.4927212</value>
+						<value>-0.960368216</value>
+						<value>-0.960176289</value>
+					</row>
+					<row>
+						<value>-6.39230734e-07</value>
+						<value>2.36145687</value>
+						<value>-0.207953259</value>
+						<value>-0.2079117</value>
+					</row>
+					<row>
+						<value>-3.66172981</value>
+						<value>0.095774807</value>
+						<value>0.186676562</value>
+						<value>0.186639249</value>
+					</row>
+					<row>
+						<value>0</value>
+						<value>2.01457669e-06</value>
+						<value>40.8081818</value>
+						<value>41.0000038</value>
+					</row>
+				</value>
+			</itemvalues>
+			<variables>
+				<variable type="float4x4" name="viewproj" system="ViewProjection" />
+				<variable type="float4x4" name="view" system="View" />
+				<variable type="float3" name="camera_pos" system="CameraPosition3" />
+				<variable type="float2" name="view_port_size" system="ViewportSize" />
+				<variable type="float4x4" name="proj" system="Projection" />
+				<variable type="float4x4" name="geo" system="GeometryTransform" />
+			</variables>
+			<macros />
+		</pass>
+	</pipeline>
+	<objects />
+	<cameras />
+	<settings>
+		<entry type="property" name="teapot_v2" item="pipe" />
+		<entry type="file" name="teapot_v2" shader="vs" />
+		<entry type="file" name="teapot_v2" shader="ps" />
+		<entry type="camera" fp="false">
+			<distance>50</distance>
+			<pitch>6</pitch>
+			<yaw>276</yaw>
+			<roll>360</roll>
+		</entry>
+		<entry type="clearcolor" r="0" g="0" b="0" a="0" />
+		<entry type="usealpha" val="false" />
+	</settings>
+	<plugindata />
+</project>

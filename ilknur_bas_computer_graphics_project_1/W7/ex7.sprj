@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<project version="2">
+	<pipeline>
+		<pass name="Simple" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\ex7_SimpleVS.glsl" entry="main" />
+			<shader type="ps" path="shaders\ex7_SimplePS.glsl" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Normal" semantic="NORMAL" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+				<item value="Tangent" semantic="TANGENT" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="uv_teapot_nonmetalic" type="model">
+					<filepath>..\W0\teapot_with_tangents\uv_teapot2.glb</filepath>
+					<grouponly>false</grouponly>
+					<instanced>true</instanced>
+					<instancecount>4</instancecount>
+				</item>
+			</items>
+			<itemvalues />
+			<variables>
+				<variable type="float4x4" name="matGeo" system="GeometryTransform" />
+				<variable type="float4x4" name="viewproj" system="ViewProjection" />
+				<variable type="float3" name="camera_pos" system="CameraPosition3" />
+				<variable type="float4x4" name="geo" system="GeometryTransform" />
+			</variables>
+			<macros />
+		</pass>
+		<pass name="metalic" type="shader" active="false" patchverts="1">
+			<shader type="vs" path="shaders\metalicVS.glsl" entry="main" />
+			<shader type="ps" path="shaders\metalicPS.glsl" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Normal" semantic="NORMAL" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="uv_teapot" type="model">
+					<filepath>..\W0\samplemodels\uv_teapot.glb</filepath>
+					<grouponly>false</grouponly>
+				</item>
+			</items>
+			<itemvalues />
+			<variables>
+				<variable type="float3" name="camera_pos" system="CameraPosition3" />
+				<variable type="float4x4" name="viewproj" system="ViewProjection" />
+				<variable type="float4x4" name="matGeo" system="GeometryTransform" />
+			</variables>
+			<macros />
+		</pass>
+	</pipeline>
+	<objects>
+		<object type="texture" path="Terrazzo005_1K-JPG_Color.jpg" vflip="false" min_filter="Linear" mag_filter="Nearest" wrap_s="Repeat" wrap_t="Repeat">
+			<bind slot="0" name="Simple" />
+		</object>
+		<object type="texture" path="Terrazzo005_1K-JPG_Roughness.jpg" vflip="false" min_filter="Linear" mag_filter="Nearest" wrap_s="Repeat" wrap_t="Repeat">
+			<bind slot="1" name="Simple" />
+		</object>
+		<object type="texture" path="Terrazzo005_1K-JPG_NormalGL.jpg" vflip="false" min_filter="Linear" mag_filter="Nearest" wrap_s="Repeat" wrap_t="Repeat">
+			<bind slot="2" name="Simple" />
+		</object>
+	</objects>
+	<cameras />
+	<settings>
+		<entry type="camera" fp="false">
+			<distance>19</distance>
+			<pitch>8</pitch>
+			<yaw>167</yaw>
+			<roll>360</roll>
+		</entry>
+		<entry type="clearcolor" r="0" g="0" b="0" a="0" />
+		<entry type="usealpha" val="false" />
+	</settings>
+	<plugindata />
+</project>
