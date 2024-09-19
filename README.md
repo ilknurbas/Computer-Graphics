@@ -1,7 +1,7 @@
 # COMP.CE.430 Computer Graphics
- My solutions to the project of Tampere University's COMP.CE.430 Computer Graphics course in 2023-2024.
+ My solutions to the assignments of Tampere University's COMP.CE.430 Computer Graphics course in 2023-2024.
  
- Assignments include such topics:
+ assignments include such topics:
  
   `Rasterization pipeline`
   
